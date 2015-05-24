@@ -22,3 +22,16 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+out
+
+/.envrc
+
+/bin
+/pkg
+/src/*
+!/src/github.com
+/src/github.com/*
+!/src/github.com/cjlucas
+/src/github.com/cjlucas/*
+!/src/github.com/cjlucas/audiotag
