@@ -1,17 +1,21 @@
 package audiotag
 
-import (
-	"image"
-	"time"
-)
+import "time"
 
 type Getter interface {
-	Title() string
-	Subtitle() string
-	TrackNumber() string // Format TP/DP
-	Album() string
-	Artist() string
+	TrackTitle() string
+	TrackSubtitle() string
+	TrackPosition() string // Format TP/DP
+	DiscPosition() string
+	DiscSubtitle() string
+	AlbumTitle() string
+	TrackArtist() string
+	TrackArtistSortOrder() string
 	AlbumArtist() string
-	Date() time.Time
-	Images() []image.Image
+	AlbumArtistSortOrder() string
+	Duration() int
+	Genre() string
+	ReleaseDate() time.Time
+	OriginalReleaseDate() time.Time
+	//Images() []image.Image // TODO: don't use image.Image
 }
