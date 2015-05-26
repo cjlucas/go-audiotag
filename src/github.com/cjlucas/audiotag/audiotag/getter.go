@@ -17,5 +17,5 @@ type Getter interface {
 	Genre() string
 	ReleaseDate() time.Time
 	OriginalReleaseDate() time.Time
-	//Images() []image.Image // TODO: don't use image.Image
+	Images() []Image
 }

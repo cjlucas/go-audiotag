@@ -35,7 +35,7 @@ type AttachedPictureFrame struct {
 	MIMEType     string
 	PictureType  PictureType
 	Description  string
-	Data         []byte
+	ImageData    []byte
 }
 
 func readUntilNull(buf []byte) ([]byte, error) {
@@ -79,7 +79,17 @@ func (f *AttachedPictureFrame) Parse(buf []byte) error {
 		buf = buf[len(desc)+2:]
 	}
 
-	f.Data = buf
+	f.ImageData = buf
 
 	return nil
+}
+
+// audiotag.Image interface
+
+func (f *AttachedPictureFrame) MIME() string {
+	return f.MIMEType
+}
+
+func (f *AttachedPictureFrame) Data() []byte {
+	return f.ImageData
 }

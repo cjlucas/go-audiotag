@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strconv"
 	"time"
+
+	"github.com/cjlucas/audiotag/audiotag"
 )
 
 // Comply with the Getter interface
@@ -97,4 +99,15 @@ func (t *ID3) OriginalReleaseDate() time.Time {
 
 	ti, _ := parseTime(tstr)
 	return ti
+}
+
+func (t *ID3) Images() []audiotag.Image {
+	images := make([]audiotag.Image, 0)
+	for _, f := range t.Frames {
+		if v, ok := f.Frame.(audiotag.Image); ok {
+			images = append(images, v)
+		}
+	}
+
+	return images
 }
